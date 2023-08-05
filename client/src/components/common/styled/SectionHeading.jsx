@@ -8,7 +8,11 @@ const Heading = styled(Typography)(({ theme }) => ({
 
 const SectionHeading = ({ children, sx, ...props }) => {
   return (
-    <Heading variant="h2" sx={sx} {...props}>
+    <Heading
+      variant="h2"
+      sx={{ fontFamily: "Archivo, sans-serif", ...sx }}
+      {...props}
+    >
       {children}
     </Heading>
   );

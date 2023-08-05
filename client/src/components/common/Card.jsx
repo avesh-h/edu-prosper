@@ -7,13 +7,17 @@ import { CardActionArea } from "@mui/material";
 import DummyImage from "../../assets/images/office-g1dbe7bcce_1280.jpg";
 
 const cardSx = {
-  maxWidth: 345,
   boxShadow: "0 0 10px 4px rgba(0, 4, 84, 0.08)",
   borderRadius: 4,
-  transition: "all .3s ease-in-out",
-  "&:hover": {
-    transform: "scale(1.1)",
+  // transition: "all .3s ease-in-out",
+  "& .MuiCardMedia-root.MuiCardMedia-media": {
     transition: "all .3s ease-in-out",
+  },
+  "&:hover": {
+    "& .MuiCardMedia-root.MuiCardMedia-media": {
+      transform: "scale(1.1)",
+      transition: "all .3s ease-in-out",
+    },
   },
 };
 
