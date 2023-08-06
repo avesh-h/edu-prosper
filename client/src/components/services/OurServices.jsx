@@ -12,14 +12,13 @@ import styles from "./styles.module.css";
 import { styled } from "@mui/material";
 
 const ServiceSlider = styled(Slider)(({ theme }) => ({
-  paddingBottom: "50px",
   "& .slick-track": {
     display: "flex",
     gap: "20px",
-    backgroundColor: "#f3f9ff",
+    // backgroundColor: "transparent",
   },
-  "& slick-slide > div": {
-    height: "400px",
+  "& .slick-slide > div": {
+    // height: "320px",
   },
 }));
 
@@ -32,14 +31,20 @@ const OurServices = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     pauseOnHover: true,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     arrows: false,
     className: `center ${styles.display}`,
   };
   return (
-    <Box sx={{ backgroundColor: "#f3f9ff" }}>
-      <Container>
-        <SectionHeading sx={{ color: "#214a98", fontSize: "50px" }}>
+    <Box>
+      <Container sx={{ py: 4 }}>
+        <SectionHeading
+          sx={{
+            color: "#214a98",
+            fontSize: "50px",
+            fontFamily: "Montserrat, sans-serif",
+          }}
+        >
           {content.heading}
         </SectionHeading>
         <Box width={"100%"} display={"flex"} justifyContent={"center"} py={4}>
@@ -47,7 +52,7 @@ const OurServices = () => {
             variantMapping={"p"}
             align="center"
             maxWidth={"60%"}
-            sx={{ fontFamily: "#3d3d3d" }}
+            sx={{ color: "#3d3d3d", fontFamily: "Montserrat, sans-serif" }}
           >
             {content.description}
           </Typography>
