@@ -27,7 +27,7 @@ const OurServices = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    autoplay: true,
+    autoplay: false,
     slidesToShow: 4,
     slidesToScroll: 1,
     pauseOnHover: true,

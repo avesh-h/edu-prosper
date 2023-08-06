@@ -3,8 +3,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { Box, Button, CardActionArea } from "@mui/material";
 import DummyImage from "../../assets/images/office-g1dbe7bcce_1280.jpg";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const cardSx = {
   border: "1px solid #cccccca8",
@@ -13,7 +14,17 @@ const cardSx = {
   "& .MuiCardMedia-root.MuiCardMedia-media": {
     transition: "all .3s ease-in-out",
   },
+  "& .arrow": {
+    width: "100%",
+    textAlign: "end",
+    transform: "translateX(-10px)",
+    transition: "all .3s ease-in-out",
+  },
   "&:hover": {
+    "& .arrow": {
+      transition: "all .3s ease-in-out",
+      transform: "translateX(0px)",
+    },
     "& .MuiCardMedia-root.MuiCardMedia-media": {
       transform: "scale(1.1)",
       transition: "all .3s ease-in-out",
@@ -46,6 +57,16 @@ export default function ServiceCard({ data }) {
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
+          <div className="arrow">
+            <ArrowForwardIcon
+              sx={{
+                color: "#214a98",
+                marginTop: "20px",
+                height: "30px",
+                width: "30px",
+              }}
+            />
+          </div>
         </CardContent>
       </CardActionArea>
     </Card>
