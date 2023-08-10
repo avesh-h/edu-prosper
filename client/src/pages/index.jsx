@@ -7,6 +7,7 @@ const HomePage = () => {
     <div>
       <AboutSection />
       <OurServices />
+      <ContactForm />
     </div>
   );
 };
