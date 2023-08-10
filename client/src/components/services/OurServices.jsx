@@ -10,6 +10,7 @@ import Container from "../common/styled/Container";
 import SectionHeading from "../common/styled/SectionHeading";
 import styles from "./styles.module.css";
 import { styled } from "@mui/material";
+import { useTheme } from "@mui/material";
 
 const ServiceSlider = styled(Slider)(({ theme }) => ({
   "& .slick-track": {
@@ -22,7 +23,18 @@ const ServiceSlider = styled(Slider)(({ theme }) => ({
   },
 }));
 
+const headingSx = {
+  color: "#000",
+  fontSize: "50px",
+  fontFamily: "Montserrat, sans-serif",
+  width: "50%",
+  padding: "0 30px",
+  borderRadius: "20px",
+  color: "#fff",
+};
+
 const OurServices = () => {
+  const theme = useTheme();
   const settings = {
     dots: false,
     infinite: true,
@@ -38,21 +50,35 @@ const OurServices = () => {
   return (
     <Box>
       <Container sx={{ py: 4 }}>
-        <SectionHeading
-          sx={{
-            color: "#214a98",
-            fontSize: "50px",
-            fontFamily: "Montserrat, sans-serif",
-          }}
-        >
-          {content.heading}
-        </SectionHeading>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <SectionHeading
+            sx={{
+              ...headingSx,
+              backgroundImage: `linear-gradient(45deg, ${theme.palette.mainColors.red}, transparent)`,
+            }}
+          >
+            {content.heading}
+          </SectionHeading>
+        </Box>
+        <Box textAlign={"center"} pt={2}>
+          <Typography
+            sx={{ color: theme.palette.mainColors.red, fontWeight: 600 }}
+          >
+            CHOOSE YOUR CATOGARY VISA
+          </Typography>
+          <Typography sx={{ fontSize: "35px", color: "#777" }} pt={1}>
+            With Migrate Immigration Visa
+          </Typography>
+          <Typography variant="h4" fontWeight={600} color={"#214a98"}>
+            Service We Provide.
+          </Typography>
+        </Box>
         <Box width={"100%"} display={"flex"} justifyContent={"center"} py={4}>
           <Typography
             variantMapping={"p"}
             align="center"
             maxWidth={"60%"}
-            sx={{ color: "#3d3d3d", fontFamily: "Montserrat, sans-serif" }}
+            sx={{ color: "#000000c4", fontFamily: "Montserrat, sans-serif" }}
           >
             {content.description}
           </Typography>

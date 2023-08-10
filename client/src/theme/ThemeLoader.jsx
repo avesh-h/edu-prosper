@@ -7,6 +7,7 @@ export const theme = createTheme({
         dark: "#0082e6",
         light: "#48b0ff",
       },
+      darkblue: "#214a98",
       red: "#d00014",
     },
   },
