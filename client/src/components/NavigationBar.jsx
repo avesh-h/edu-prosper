@@ -14,9 +14,10 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
-import CanadaFlag from "../../assets/images/canada waving flag/Waving flag/for a white background/Canada-xs.gif";
-import UKFlag from "../../assets/images/united-kingdom waving flag/Waving flag/for a white background/United-Kingdom-xs.gif";
-import USAFlag from "../../assets/images/united-states waving flag/Waving flag/for a white background/United-States-xs.gif";
+import CanadaFlag from "../assets/images/canada waving flag/Waving flag/for a white background/Canada-xs.gif";
+import UKFlag from "../assets/images/united-kingdom waving flag/Waving flag/for a white background/United-Kingdom-xs.gif";
+import USAFlag from "../assets/images/united-states waving flag/Waving flag/for a white background/United-States-xs.gif";
+import { Link } from "react-scroll";
 
 const StyledAppBar = styled(AppBar)(({ theme, scrolled }) => ({
   backgroundColor: scrolled ? "#214a98d1" : "#fff",
@@ -27,6 +28,10 @@ const StyledAppBar = styled(AppBar)(({ theme, scrolled }) => ({
     marginLeft: 240,
   },
 }));
+
+const ScrollableLink = styled(Link)({
+  cursor: "pointer",
+});
 
 const Logo = styled("img")(({ theme }) => ({
   width: 130,
@@ -132,10 +137,46 @@ const ResponsiveNavBar = () => {
             variant="dense"
             sx={{ backgroundColor: "white", justifyContent: "space-evenly" }}
           >
-            <Button style={{ color: "black" }}>Home</Button>
-            <Button style={{ color: "black" }}>About</Button>
-            <Button style={{ color: "black" }}>Services</Button>
-            <Button style={{ color: "black" }}>Contact</Button>
+            <ScrollableLink
+              to="hero"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              {/* <Button style={{ color: "black" }}>Home</Button> */}
+              Home
+            </ScrollableLink>
+            <ScrollableLink
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              {/* <Button style={{ color: "black" }}>About</Button> */}
+              About
+            </ScrollableLink>
+            <ScrollableLink
+              to="services"
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
+            >
+              {/* <Button style={{ color: "black" }}>Services</Button> */}
+              Services
+            </ScrollableLink>
+            <ScrollableLink
+              to="contacts"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              {/* <Button style={{ color: "black" }}>Contacts</Button> */}
+              Contacts
+            </ScrollableLink>
           </Toolbar>
         )}
       </div>

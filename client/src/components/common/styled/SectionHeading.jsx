@@ -6,13 +6,19 @@ const Heading = styled(Typography)(({ theme }) => ({
   textAlign: "center",
 }));
 
+const headingSx = {
+  color: "#000",
+  fontSize: "50px",
+  fontFamily: "Montserrat, sans-serif",
+  width: "50%",
+  padding: "0 30px",
+  borderRadius: "20px",
+  color: "#fff",
+};
+
 const SectionHeading = ({ children, sx, ...props }) => {
   return (
-    <Heading
-      variant="h2"
-      sx={{ fontFamily: "Archivo, sans-serif", ...sx }}
-      {...props}
-    >
+    <Heading variant="h2" sx={{ ...headingSx, ...sx }} {...props}>
       {children}
     </Heading>
   );

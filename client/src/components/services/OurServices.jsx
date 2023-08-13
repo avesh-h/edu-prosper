@@ -16,22 +16,8 @@ const ServiceSlider = styled(Slider)(({ theme }) => ({
   "& .slick-track": {
     display: "flex",
     gap: "20px",
-    // backgroundColor: "transparent",
-  },
-  "& .slick-slide > div": {
-    // height: "320px",
   },
 }));
-
-const headingSx = {
-  color: "#000",
-  fontSize: "50px",
-  fontFamily: "Montserrat, sans-serif",
-  width: "50%",
-  padding: "0 30px",
-  borderRadius: "20px",
-  color: "#fff",
-};
 
 const OurServices = () => {
   const theme = useTheme();
@@ -48,12 +34,11 @@ const OurServices = () => {
     className: `center ${styles.display}`,
   };
   return (
-    <Box>
+    <div id="services">
       <Container sx={{ py: 4 }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <SectionHeading
             sx={{
-              ...headingSx,
               backgroundImage: `linear-gradient(45deg, ${theme.palette.mainColors.red}, transparent)`,
             }}
           >
@@ -91,7 +76,7 @@ const OurServices = () => {
           </ServiceSlider>
         </Box>
       </Container>
-    </Box>
+    </div>
   );
 };
 

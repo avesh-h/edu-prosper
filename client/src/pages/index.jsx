@@ -1,9 +1,9 @@
 import React from "react";
 import OurServices from "../components/services/OurServices";
-import NavigationBar from "../components/services/NavigationBar";
-import ContactForm from "../components/services/ContactForm";
+import NavigationBar from "../components/NavigationBar";
+import ContactForm from "../components/contact/ContactForm";
 import AboutSection from "../components/about/AboutSection";
-// import Home from "../components/services/Home";
+// import Home from "../components/home/Home";
 
 const HomePage = () => {
   return (
