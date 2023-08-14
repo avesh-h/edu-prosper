@@ -29,19 +29,28 @@ const StyledAppBar = styled(AppBar)(({ theme, scrolled }) => ({
   },
 }));
 
-const ScrollableLink = styled(Link)({
+const ScrollableLinkBtn = styled(Button)({
   cursor: "pointer",
+  color: "#fff",
+  height: "60px",
+  transition: "all .1s ease-in-out",
+  background: "transparent",
+  "&:hover": {
+    borderBottom: "2px solid #fff",
+    borderRadius: "0",
+    transition: "all .1s ease-in-out",
+  },
 });
 
-const Logo = styled("img")(({ theme }) => ({
-  width: 130,
-  height: 40,
-  objectFit: "auto",
-  filter: "invert(100%)",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: 30,
-  },
-}));
+// const Logo = styled("img")(({ theme }) => ({
+//   width: 130,
+//   height: 40,
+//   objectFit: "auto",
+//   filter: "invert(100%)",
+//   [theme.breakpoints.up("sm")]: {
+//     marginLeft: 30,
+//   },
+// }));
 
 const countries = [
   { name: "Canada", gifUrl: CanadaFlag },
@@ -135,48 +144,41 @@ const ResponsiveNavBar = () => {
         {!isSmallScreen && !isTabletScreen && (
           <Toolbar
             variant="dense"
-            sx={{ backgroundColor: "white", justifyContent: "space-evenly" }}
+            sx={{
+              backgroundColor: "#d00014",
+              justifyContent: "space-evenly",
+            }}
           >
-            <ScrollableLink
-              to="hero"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-            >
-              {/* <Button style={{ color: "black" }}>Home</Button> */}
-              Home
-            </ScrollableLink>
-            <ScrollableLink
+            <Link to="hero" spy={true} smooth={true} offset={50} duration={500}>
+              <ScrollableLinkBtn>Home</ScrollableLinkBtn>
+            </Link>
+            <Link
               to="about"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={-50}
               duration={500}
             >
-              {/* <Button style={{ color: "black" }}>About</Button> */}
-              About
-            </ScrollableLink>
-            <ScrollableLink
+              <ScrollableLinkBtn>About</ScrollableLinkBtn>
+            </Link>
+            <Link
               to="services"
               spy={true}
               smooth={true}
               offset={-50}
               duration={500}
             >
-              {/* <Button style={{ color: "black" }}>Services</Button> */}
-              Services
-            </ScrollableLink>
-            <ScrollableLink
+              <ScrollableLinkBtn>Services</ScrollableLinkBtn>
+            </Link>
+            <Link
               to="contacts"
               spy={true}
               smooth={true}
-              offset={50}
+              offset={-50}
               duration={500}
             >
-              {/* <Button style={{ color: "black" }}>Contacts</Button> */}
-              Contacts
-            </ScrollableLink>
+              <ScrollableLinkBtn>Contacts</ScrollableLinkBtn>
+            </Link>
           </Toolbar>
         )}
       </div>
