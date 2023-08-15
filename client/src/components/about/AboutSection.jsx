@@ -31,7 +31,7 @@ const AboutItem = styled(Typography)(({ theme }) => ({
 const AboutSection = () => {
   return (
     <div id="about">
-      <Container>
+      <Container sx={{ py: 4 }}>
         <MainSection>
           <Box width={"45%"}>
             <img src={aboutUsImg} width={"600px"} />

@@ -1,11 +1,10 @@
-import * as React from "react";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { CardActionArea } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, Button, CardActionArea } from "@mui/material";
-import DummyImage from "../../assets/images/office-g1dbe7bcce_1280.jpg";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import * as React from "react";
 
 const cardSx = {
   border: "2px solid #cccccca8",

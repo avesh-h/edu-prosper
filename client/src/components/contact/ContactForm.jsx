@@ -54,7 +54,7 @@ const ContactForm = () => {
 
   return (
     <div id="contacts">
-      <Container sx={{ py: 3 }}>
+      <Container sx={{ py: 4 }}>
         <Grid container spacing={2}>
           {!isTabletScreen && !isSmallScreen && (
             <Grid item xs={12} md={6} textAlign={"center"}>
