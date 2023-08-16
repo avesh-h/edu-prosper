@@ -14,9 +14,11 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
-import CanadaFlag from "../../assets/images/canada waving flag/Waving flag/for a white background/Canada-xs.gif";
-import UKFlag from "../../assets/images/united-kingdom waving flag/Waving flag/for a white background/United-Kingdom-xs.gif";
-import USAFlag from "../../assets/images/united-states waving flag/Waving flag/for a white background/United-States-xs.gif";
+import CanadaFlag from "../assets/images/canada waving flag/Waving flag/for a white background/Canada-xs.gif";
+import UKFlag from "../assets/images/united-kingdom waving flag/Waving flag/for a white background/United-Kingdom-xs.gif";
+import USAFlag from "../assets/images/united-states waving flag/Waving flag/for a white background/United-States-xs.gif";
+import { Link } from "react-scroll";
+import CanadaIcon from "../assets/images/canada-icon-website.png";
 
 const StyledAppBar = styled(AppBar)(({ theme, scrolled }) => ({
   backgroundColor: scrolled ? "#214a98d1" : "#fff",
@@ -28,13 +30,36 @@ const StyledAppBar = styled(AppBar)(({ theme, scrolled }) => ({
   },
 }));
 
-const Logo = styled("img")(({ theme }) => ({
-  width: 130,
-  height: 40,
-  objectFit: "auto",
-  filter: "invert(100%)",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: 30,
+const ScrollableLinkBtn = styled(Button)({
+  cursor: "pointer",
+  color: "#fff",
+  height: "60px",
+  transition: "all .1s ease-in-out",
+  background: "transparent",
+  "&:hover": {
+    borderBottom: "2px solid #fff",
+    borderRadius: "0",
+    transition: "all .1s ease-in-out",
+  },
+});
+
+const LogoTxt = styled(Typography)(({ theme }) => ({
+  flexGrow: 1,
+  textAlign: { xs: "center", sm: "left" },
+  fontFamily: "Arial, sans-serif",
+  position: "relative",
+  paddingLeft: "50px",
+  "&::before": {
+    content: "''",
+    backgroundImage: `url(${CanadaIcon})`,
+    width: "40px",
+    height: "40px",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    backgroundPosition: "left center",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
   },
 }));
 
@@ -90,17 +115,14 @@ const ResponsiveNavBar = () => {
               <MenuIcon />
             </IconButton>
           )}
-          <Typography
+          <LogoTxt
             variant="h6"
             sx={{
-              flexGrow: 1,
-              textAlign: { xs: "center", sm: "left" },
-              fontFamily: "Arial, sans-serif",
               color: scrolled ? "#fff" : "#000",
             }}
           >
             PROSPER
-          </Typography>
+          </LogoTxt>
           {!isSmallScreen && !isTabletScreen && (
             <div style={{ display: "flex", alignItems: "center" }}>
               {countries.map((country) => (
@@ -130,12 +152,41 @@ const ResponsiveNavBar = () => {
         {!isSmallScreen && !isTabletScreen && (
           <Toolbar
             variant="dense"
-            sx={{ backgroundColor: "white", justifyContent: "space-evenly" }}
+            sx={{
+              backgroundColor: "#d00014",
+              justifyContent: "space-evenly",
+            }}
           >
-            <Button style={{ color: "black" }}>Home</Button>
-            <Button style={{ color: "black" }}>About</Button>
-            <Button style={{ color: "black" }}>Services</Button>
-            <Button style={{ color: "black" }}>Contact</Button>
+            <Link to="hero" spy={true} smooth={true} offset={50} duration={500}>
+              <ScrollableLinkBtn>Home</ScrollableLinkBtn>
+            </Link>
+            <Link
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
+            >
+              <ScrollableLinkBtn>About</ScrollableLinkBtn>
+            </Link>
+            <Link
+              to="services"
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
+            >
+              <ScrollableLinkBtn>Services</ScrollableLinkBtn>
+            </Link>
+            <Link
+              to="contacts"
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
+            >
+              <ScrollableLinkBtn>Contacts</ScrollableLinkBtn>
+            </Link>
           </Toolbar>
         )}
       </div>
