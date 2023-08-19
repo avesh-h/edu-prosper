@@ -4,7 +4,6 @@ import NavigationBar from "../components/NavigationBar";
 import ContactForm from "../components/contact/ContactForm";
 import AboutSection from "../components/about/AboutSection";
 import Home from "../components/home/Home";
-import Footer from "../components/footer/Footer";
 
 const HomePage = () => {
   return (
@@ -14,7 +13,6 @@ const HomePage = () => {
       <AboutSection />
       <OurServices />
       <ContactForm />
-      <Footer/>
     </div>
   );
 };
