@@ -11,11 +11,28 @@ import SectionHeading from "../common/styled/SectionHeading";
 import styles from "./styles.module.css";
 import { styled } from "@mui/material";
 import { useTheme } from "@mui/material";
+import BannerImg from "../../assets/images/banner-1.webp";
 
 const ServiceSlider = styled(Slider)(({ theme }) => ({
   "& .slick-track": {
     display: "flex",
     gap: "20px",
+  },
+}));
+
+const MainSection = styled("div")(({ theme }) => ({
+  backgroundImage: `url(${BannerImg})`,
+  height: "auto",
+  backgroundSize: "cover",
+  position: "relative",
+  "&::before": {
+    content: "''",
+    position: "absolute",
+    height: "100%",
+    backgroundColor: "#00000069",
+    height: "100%",
+    width: "100%",
+    zIndex: 1,
   },
 }));
 
@@ -34,8 +51,8 @@ const OurServices = () => {
     className: `center ${styles.display}`,
   };
   return (
-    <div id="services">
-      <Container sx={{ py: 4 }}>
+    <MainSection id="services">
+      <Container sx={{ py: 4, position: "relative", zIndex: 1 }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <SectionHeading
             sx={{
@@ -47,14 +64,17 @@ const OurServices = () => {
         </Box>
         <Box textAlign={"center"} pt={2}>
           <Typography
-            sx={{ color: theme.palette.mainColors.red, fontWeight: 600 }}
+            sx={{
+              color: theme.palette.mainColors.red,
+              fontWeight: 600,
+            }}
           >
             CHOOSE YOUR CATOGARY VISA
           </Typography>
-          <Typography sx={{ fontSize: "35px", color: "#777" }} pt={1}>
+          <Typography sx={{ fontSize: "35px", color: "#fff" }} pt={1}>
             With Migrate Immigration Visa
           </Typography>
-          <Typography variant="h4" fontWeight={600} color={"#214a98"}>
+          <Typography variant="h4" fontWeight={600} color={"#fff"}>
             Service We Provide.
           </Typography>
         </Box>
@@ -63,7 +83,7 @@ const OurServices = () => {
             variantMapping={"p"}
             align="center"
             maxWidth={"60%"}
-            sx={{ color: "#000000c4", fontFamily: "Montserrat, sans-serif" }}
+            sx={{ color: "#fff", fontFamily: "Montserrat, sans-serif" }}
           >
             {content.description}
           </Typography>
@@ -76,7 +96,7 @@ const OurServices = () => {
           </ServiceSlider>
         </Box>
       </Container>
-    </div>
+    </MainSection>
   );
 };
 

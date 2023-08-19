@@ -5,10 +5,28 @@ import {
   Grid,
   MenuItem,
   useMediaQuery,
+  styled,
 } from "@mui/material";
 import SectionHeading from "../common/styled/SectionHeading";
 import Container from "../common/styled/Container";
-import ContactFormImg from "../../assets/images/Contact-us.jpg";
+import ContactFormImg from "../../assets/images/contact-us.png";
+import BannerImg from "../../assets/images/banner-2.webp";
+
+const MainSection = styled("div")(({ theme }) => ({
+  backgroundImage: `url(${BannerImg})`,
+  height: "auto",
+  backgroundSize: "cover",
+  position: "relative",
+  "&::before": {
+    content: "''",
+    position: "absolute",
+    height: "100%",
+    backgroundColor: "#292020c2",
+    height: "100%",
+    width: "100%",
+    zIndex: 1,
+  },
+}));
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -53,8 +71,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div id="contacts">
-      <Container sx={{ py: 4 }}>
+    <MainSection id="contacts">
+      <Container sx={{ py: 4, position: "relative", zIndex: 1 }}>
         <Grid container spacing={2}>
           {!isTabletScreen && !isSmallScreen && (
             <Grid item xs={12} md={6} textAlign={"center"}>
@@ -68,13 +86,25 @@ const ContactForm = () => {
           <Grid item xs={12} md={isTabletScreen ? 12 : 6}>
             <SectionHeading
               sx={{
-                backgroundImage: `linear-gradient(45deg, #214a98, transparent)`,
+                backgroundImage: `linear-gradient(45deg, red, transparent)`,
               }}
             >
               Contact Us
             </SectionHeading>
             <form onSubmit={handleSubmit} style={{ paddingTop: "30px" }}>
-              <Grid container spacing={2}>
+              <Grid
+                container
+                spacing={2}
+                sx={{
+                  "& .MuiTextField-root": {
+                    color: "#fff",
+                    border: "1px solid #fff",
+                  },
+                  "& .MuiFormLabel-root.MuiInputLabel-root": {
+                    color: "#fff",
+                  },
+                }}
+              >
                 <Grid item xs={12}>
                   <TextField
                     label="Name"
@@ -117,7 +147,7 @@ const ContactForm = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </MainSection>
   );
 };
 

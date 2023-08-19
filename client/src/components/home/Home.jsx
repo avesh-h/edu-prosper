@@ -1,12 +1,11 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { CardContent, Typography, Box, styled } from "@mui/material";
-import { heroBanner } from "../../static/Hero";
-import coverImg from "../../assets/images/about-us-2.png";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { Box, styled } from "@mui/material";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import { heroBanner } from "../../static/Hero";
 
 const BannerSlider = styled(Slider)({
   height: 700,
@@ -108,10 +107,10 @@ const Home = () => {
                   content: "''",
                   position: "absolute",
                   height: "100%",
-                  backgroundColor: "#00000082",
+                  backgroundColor: "#ffffff36",
                   height: "700px",
                   width: "100%",
-                  zIndex: 10,
+                  zIndex: 1,
                 },
               }}
             >

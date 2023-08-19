@@ -11,6 +11,8 @@ import {
   ListItemText,
   useMediaQuery,
   Slide,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -21,7 +23,7 @@ import { Link } from "react-scroll";
 import CanadaIcon from "../assets/images/canada-icon-website.png";
 
 const StyledAppBar = styled(AppBar)(({ theme, scrolled }) => ({
-  backgroundColor: scrolled ? "#214a98d1" : "#fff",
+  backgroundColor: scrolled ? "#be15158a" : "#fff",
   width: "100%",
   transition: "background-color 0.7s ease-in-out",
   boxShadow: "none",
@@ -80,11 +82,22 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
 
 const ResponsiveNavBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const isTabletScreen = useMediaQuery((theme) =>
     theme.breakpoints.between("sm", "md")
   );
-  const [scrolled, setScrolled] = useState(false);
+
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -157,9 +170,6 @@ const ResponsiveNavBar = () => {
               justifyContent: "space-evenly",
             }}
           >
-            <Link to="hero" spy={true} smooth={true} offset={50} duration={500}>
-              <ScrollableLinkBtn>Home</ScrollableLinkBtn>
-            </Link>
             <Link
               to="about"
               spy={true}
@@ -179,6 +189,15 @@ const ResponsiveNavBar = () => {
               <ScrollableLinkBtn>Services</ScrollableLinkBtn>
             </Link>
             <Link
+              to="services"
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
+            >
+              <ScrollableLinkBtn>Testimonials</ScrollableLinkBtn>
+            </Link>
+            <Link
               to="contacts"
               spy={true}
               smooth={true}
@@ -186,6 +205,24 @@ const ResponsiveNavBar = () => {
               duration={500}
             >
               <ScrollableLinkBtn>Contacts</ScrollableLinkBtn>
+            </Link>
+            <Link to="hero" spy={true} smooth={true} offset={50} duration={500}>
+              <ScrollableLinkBtn onClick={handleClick}>
+                Countries
+              </ScrollableLinkBtn>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              </Menu>
             </Link>
           </Toolbar>
         )}

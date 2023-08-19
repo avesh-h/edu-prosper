@@ -9,7 +9,7 @@ const Heading = styled(Typography)(({ theme }) => ({
 const headingSx = {
   color: "#000",
   fontSize: "50px",
-  fontFamily: "Montserrat, sans-serif",
+  fontFamily: "Shippori Mincho, serif",
   width: "50%",
   padding: "0 30px",
   borderRadius: "20px",

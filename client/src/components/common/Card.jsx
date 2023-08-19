@@ -7,9 +7,10 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 
 const cardSx = {
-  border: "2px solid #cccccca8",
+  border: "2px solid #fff",
   boxShadow: "0 0 10px 4px rgba(0, 4, 84, 0.08)",
   borderRadius: 4,
+  backgroundColor: "transparent",
   "& .MuiCardMedia-root.MuiCardMedia-media": {
     transition: "all .3s ease-in-out",
   },
@@ -18,10 +19,10 @@ const cardSx = {
     textAlign: "end",
     transform: "translateX(-10px)",
     transition: "all .3s ease-in-out",
-    color: "#214a98",
+    color: "#fff",
   },
   "& .MuiTypography-root.MuiTypography-h5": {
-    color: "#214a98",
+    color: "#fff",
   },
   "&:hover": {
     "& .arrow": {
@@ -34,13 +35,13 @@ const cardSx = {
       transition: "all .3s ease-in-out",
     },
     "& .MuiCardContent-root": {
-      backgroundColor: "#214a98",
+      backgroundColor: "#b9040442",
       color: "#fff",
     },
     "& .MuiTypography-root.MuiTypography-h5": {
       color: "#fff",
     },
-    border: "2px solid #214a98",
+    border: "2px solid #fff",
   },
 };
 
@@ -54,7 +55,7 @@ export default function ServiceCard({ data }) {
           image={data.img}
           alt="green iguana"
         />
-        <CardContent sx={{ bgcolor: "#fff" }}>
+        <CardContent>
           <Typography
             gutterBottom
             variant="h5"
@@ -65,7 +66,7 @@ export default function ServiceCard({ data }) {
           >
             {data.title}
           </Typography>
-          <Typography variant="body2">
+          <Typography variant="body2" color={"#fff"}>
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
