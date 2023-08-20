@@ -11,22 +11,7 @@ import SectionHeading from "../common/styled/SectionHeading";
 import Container from "../common/styled/Container";
 import ContactFormImg from "../../assets/images/contact-us.png";
 import BannerImg from "../../assets/images/banner-2.webp";
-
-const MainSection = styled("div")(({ theme }) => ({
-  backgroundImage: `url(${BannerImg})`,
-  height: "auto",
-  backgroundSize: "cover",
-  position: "relative",
-  "&::before": {
-    content: "''",
-    position: "absolute",
-    height: "100%",
-    backgroundColor: "#292020c2",
-    height: "100%",
-    width: "100%",
-    zIndex: 1,
-  },
-}));
+import OverlaySection from "../common/styled/OverlaySection";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -71,7 +56,7 @@ const ContactForm = () => {
   };
 
   return (
-    <MainSection id="contacts">
+    <OverlaySection id="contacts" overlayColor="#292020c2" bgImage={BannerImg}>
       <Container sx={{ py: 4, position: "relative", zIndex: 1 }}>
         <Grid container spacing={2}>
           {!isTabletScreen && !isSmallScreen && (
@@ -147,7 +132,7 @@ const ContactForm = () => {
           </Grid>
         </Grid>
       </Container>
-    </MainSection>
+    </OverlaySection>
   );
 };
 

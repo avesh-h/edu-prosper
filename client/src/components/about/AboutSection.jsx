@@ -8,28 +8,13 @@ import { aboutUs } from "../../static/AboutUs";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import styled from "@mui/material/styles/styled";
 import BannerImg from "../../assets/images/University_of_Michigan_Law_School-scaled.jpg";
+import OverlaySection from "../common/styled/OverlaySection";
 
 const aboutTexts = [
   "Talk to one of our best consultant today",
   "Our experts are able to find new growth",
   "Find more information our website",
 ];
-
-const MainSection = styled("div")(({ theme }) => ({
-  backgroundImage: `url(${BannerImg})`,
-  height: "auto",
-  backgroundSize: "cover",
-  position: "relative",
-  "&::before": {
-    content: "''",
-    position: "absolute",
-    height: "100%",
-    backgroundColor: "#00000075",
-    height: "100%",
-    width: "100%",
-    zIndex: 1,
-  },
-}));
 
 const ContentSection = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -47,7 +32,7 @@ const AboutItem = styled(Typography)(({ theme }) => ({
 
 const AboutSection = () => {
   return (
-    <MainSection id="about">
+    <OverlaySection id="about" overlayColor="#00000075" bgImage={BannerImg}>
       <Container sx={{ py: 8 }}>
         <ContentSection>
           <Box width={"45%"} zIndex={2}>
@@ -61,7 +46,6 @@ const AboutSection = () => {
             <SectionHeading
               sx={{
                 backgroundImage: `linear-gradient(45deg, #d00014, transparent)`,
-                // backgroundColor: "#d00014",
                 fontSize: "60px",
               }}
             >
@@ -88,7 +72,7 @@ const AboutSection = () => {
           </Box>
         </ContentSection>
       </Container>
-    </MainSection>
+    </OverlaySection>
   );
 };
 
