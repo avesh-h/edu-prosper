@@ -5,6 +5,9 @@ import ContactForm from "../components/contact/ContactForm";
 import AboutSection from "../components/about/AboutSection";
 import Home from "../components/home/Home";
 import Footer from "../components/footer/Footer";
+import TestimonialPage from "../components/Testimonial/TestimonialPage";
+import Count from "../components/common/counters/Counter";
+
 
 const HomePage = () => {
   return (
@@ -13,7 +16,9 @@ const HomePage = () => {
       <Home />
       <AboutSection />
       <OurServices />
+      <TestimonialPage/>
       <ContactForm />
+      <Count/>
       <Footer />
     </>
   );
