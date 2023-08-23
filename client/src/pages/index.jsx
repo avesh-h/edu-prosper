@@ -8,6 +8,7 @@ import Footer from "../components/footer/Footer";
 import TestimonialPage from "../components/Testimonial/TestimonialPage";
 import Count from "../components/common/counters/Counter";
 
+
 const HomePage = () => {
   return (
     <>

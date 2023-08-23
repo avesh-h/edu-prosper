@@ -8,31 +8,15 @@ import { OurServices as content } from "../../static/OurServices";
 import Card from "../common/Card";
 import Container from "../common/styled/Container";
 import SectionHeading from "../common/styled/SectionHeading";
-import styles from "./styles.module.css";
 import { styled } from "@mui/material";
 import { useTheme } from "@mui/material";
 import BannerImg from "../../assets/images/banner-1.webp";
+import OverlaySection from "../common/styled/OverlaySection";
 
 const ServiceSlider = styled(Slider)(({ theme }) => ({
   "& .slick-track": {
     display: "flex",
     gap: "20px",
-  },
-}));
-
-const MainSection = styled("div")(({ theme }) => ({
-  backgroundImage: `url(${BannerImg})`,
-  height: "auto",
-  backgroundSize: "cover",
-  position: "relative",
-  "&::before": {
-    content: "''",
-    position: "absolute",
-    height: "100%",
-    backgroundColor: "#00000069",
-    height: "100%",
-    width: "100%",
-    zIndex: 1,
   },
 }));
 
@@ -48,10 +32,9 @@ const OurServices = () => {
     pauseOnHover: true,
     adaptiveHeight: false,
     arrows: false,
-    className: `center ${styles.display}`,
   };
   return (
-    <MainSection id="services">
+    <OverlaySection id="services" overlayColor="#00000069" bgImage={BannerImg}>
       <Container sx={{ py: 4, position: "relative", zIndex: 1 }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <SectionHeading
@@ -96,7 +79,7 @@ const OurServices = () => {
           </ServiceSlider>
         </Box>
       </Container>
-    </MainSection>
+    </OverlaySection>
   );
 };
 

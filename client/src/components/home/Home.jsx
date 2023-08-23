@@ -113,9 +113,7 @@ const Home = () => {
                   zIndex: 1,
                 },
               }}
-            >
-              {/* <img src={banner.img} alt="banner" /> */}
-            </Box>
+            ></Box>
           );
         })}
       </BannerSlider>
