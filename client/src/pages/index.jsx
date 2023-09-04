@@ -17,8 +17,8 @@ const HomePage = () => {
       <AboutSection />
       <OurServices />
       <TestimonialPage/>
-      <ContactForm />
       <Count/>
+      <ContactForm />
       <Footer />
     </>
   );

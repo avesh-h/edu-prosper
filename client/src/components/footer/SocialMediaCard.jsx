@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography, Box, Button } from '@mui/material';
-import { Facebook, Twitter, Instagram } from '@mui/icons-material';
+import { Facebook, LinkedIn, Instagram } from '@mui/icons-material';
 import { styled } from '@mui/system';
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -59,17 +59,17 @@ const SocialMediaCard = () => {
         <CardTitle>Get Social</CardTitle>
         <SocialMediaContainer>
           <SocialIconBox className="social-icon">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/profile.php?id=100095439190652&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
               <Facebook style={{ fontSize: '1.3rem', color: 'white' }} />
             </a>
           </SocialIconBox>
           <SocialIconBox className="social-icon">
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-              <Twitter style={{ fontSize: '1.3rem', color: 'white' }} />
+            <a href="https://www.linkedin.com/company/prosper-educare-canada-inc/" target="_blank" rel="noopener noreferrer">
+              <LinkedIn style={{ fontSize: '1.3rem', color: 'white' }} />
             </a>
           </SocialIconBox>
           <SocialIconBox className="social-icon">
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://instagram.com/prosper.educare?igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
               <Instagram style={{ fontSize: '1.3rem', color: 'white' }} />
             </a>
           </SocialIconBox>
