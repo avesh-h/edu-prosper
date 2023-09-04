@@ -16,10 +16,11 @@ const HomePage = () => {
       <NavigationBar />
       <Home />
       <AboutSection />
-      <OurServices />
+      <TestimonialPage/>
+      <ContactForm />
       <TestimonialPage />
       <ContactForm />
-      <Count />
+      <Count/>
       <Footer />
       <ScrollToTop
         showUnder={160}

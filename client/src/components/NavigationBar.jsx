@@ -167,7 +167,8 @@ const ResponsiveNavBar = () => {
             variant="dense"
             sx={{
               backgroundColor: "#d00014",
-              justifyContent: "space-evenly",
+              justifyContent: "start",
+              gap:"50px"
             }}
           >
             <Link
@@ -196,24 +197,6 @@ const ResponsiveNavBar = () => {
               duration={500}
             >
               <ScrollableLinkBtn>Testimonials</ScrollableLinkBtn>
-            </Link>
-            <Link
-              to="contacts"
-              spy={true}
-              smooth={true}
-              offset={-50}
-              duration={500}
-            >
-              <ScrollableLinkBtn>Contacts</ScrollableLinkBtn>
-            </Link>
-            <Link
-              to="ourNetwork"
-              spy={true}
-              smooth={true}
-              offset={-50}
-              duration={500}
-            >
-              <ScrollableLinkBtn>Networks</ScrollableLinkBtn>
             </Link>
             <Link to="hero" spy={true} smooth={true} offset={50} duration={500}>
               <ScrollableLinkBtn onClick={handleClick}>
