@@ -15,11 +15,10 @@ const HomePage = () => {
     <>
       <Home />
       <AboutSection />
-      <TestimonialPage/>
       <ContactForm />
       <TestimonialPage />
       <ContactForm />
-      <Count/>
+      <Count />
       <Footer />
       <ScrollToTop
         showUnder={160}
@@ -39,7 +38,7 @@ const HomePage = () => {
         <KeyboardArrowUpIcon
           style={{
             color: "#fff",
-            background: "red",
+            background: "rgb(240, 40, 73)",
             padding: "3px",
             fontSize: "34px",
             borderRadius: "50px",

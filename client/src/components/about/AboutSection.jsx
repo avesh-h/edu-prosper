@@ -45,7 +45,7 @@ const AboutSection = () => {
           <Box maxWidth={"45%"} zIndex={2}>
             <SectionHeading
               sx={{
-                backgroundImage: `linear-gradient(45deg, #d00014, transparent)`,
+                backgroundImage: `linear-gradient(45deg, rgb(240, 40, 73), transparent)`,
                 fontSize: "60px",
               }}
             >

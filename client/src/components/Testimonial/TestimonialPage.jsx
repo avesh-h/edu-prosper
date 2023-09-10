@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, styled} from "@mui/material";
+import { Box, styled } from "@mui/material";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -10,11 +10,11 @@ import { testimonials } from "./TestimonialData";
 import SectionHeading from "../common/styled/SectionHeading";
 
 const BannerSlider = styled(Slider)(({ theme }) => ({
-  "div":{
+  div: {
     display: "flex",
-    justifyContent: "center", 
-    alignItems: "center", 
-  }
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
 
 const MainSection = styled("div")({
@@ -23,7 +23,7 @@ const MainSection = styled("div")({
   padding: "50px 0",
 });
 
-const ArrowBox = styled(Box)(({theme}) => ({
+const ArrowBox = styled(Box)(({ theme }) => ({
   display: "block",
   background: "white",
   height: "40px",
@@ -65,7 +65,11 @@ const BackArrowIcon = styled(ArrowBackIosIcon)(({ theme }) => ({
 
 function SampleNextArrow({ className, onClick }) {
   return (
-    <ArrowBox className={className} position={{ right: "3%" }} onClick={onClick}>
+    <ArrowBox
+      className={className}
+      position={{ right: "3%" }}
+      onClick={onClick}
+    >
       <ArrowIcon />
     </ArrowBox>
   );
@@ -95,7 +99,7 @@ const TestimonialPage = () => {
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <SectionHeading
           sx={{
-            backgroundImage: `linear-gradient(45deg, #d00014, transparent)`,
+            backgroundImage: `linear-gradient(45deg, rgb(240, 40, 73), transparent)`,
           }}
         >
           Testimonials
@@ -108,7 +112,6 @@ const TestimonialPage = () => {
             text={testimonial.text}
             name={testimonial.name}
             image={testimonial.image}
-
           />
         ))}
       </BannerSlider>

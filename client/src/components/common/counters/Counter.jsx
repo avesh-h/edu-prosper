@@ -9,7 +9,7 @@ const CounterContainer = styled("div")({
   flexDirection: "column",
   alignItems: "center",
   gap: "50px",
-  backgroundColor: "red",
+  backgroundColor: "rgb(240, 40, 73)",
   color: "white",
   padding: "60px 0",
 });
@@ -26,7 +26,7 @@ const CounterValue = styled(Typography)({
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  fontFamily:"Cinzel,serif",
+  fontFamily: "Cinzel,serif",
 });
 
 const CounterLabel = styled(Typography)({
@@ -45,7 +45,13 @@ const Counter = ({ value, label, inView }) => (
     {inView && (
       <>
         <CounterValue>
-          <CountUp start={0} end={value} duration={2.5} separator="," delay={0} />
+          <CountUp
+            start={0}
+            end={value}
+            duration={2.5}
+            separator=","
+            delay={0}
+          />
         </CounterValue>
         <CounterLabel>{label}</CounterLabel>
       </>
@@ -86,7 +92,6 @@ const Count = () => {
       <CounterContainer>
         <SectionHeading
           sx={{
-            backgroundImage: "linear-gradient(45deg, red, transparent)",
             marginBottom: "40px",
           }}
         >

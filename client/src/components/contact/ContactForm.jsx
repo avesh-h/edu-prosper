@@ -71,7 +71,7 @@ const ContactForm = () => {
           <Grid item xs={12} md={isTabletScreen ? 12 : 6}>
             <SectionHeading
               sx={{
-                backgroundImage: `linear-gradient(45deg, red, transparent)`,
+                backgroundImage: `linear-gradient(45deg, rgb(240, 40, 73), transparent)`,
               }}
             >
               Contact Us
