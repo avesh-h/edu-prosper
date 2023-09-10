@@ -27,8 +27,8 @@ const CustomButton = styled(Button)(({ theme }) => ({
   fontFamily: "'Phudu', cursive;",
   color: "#fff",
   // fontSize: "24px",
-  fontSize:"18PX",
-  fontWeight:400,
+  fontSize: "18PX",
+  fontWeight: 400,
   textDecoration: "none",
   transition: "font-size 0.2s ease, text-decoration 0.2s ease",
   "&:hover": {
@@ -42,13 +42,13 @@ const AnimatedTitle = styled(Typography)(({ theme, animate }) => ({
   // fontFamily: "'Amatic SC', cursive",
   fontFamily: "'Phudu', cursive;",
   // fontSize: animate ? "48px" : "0"
-  paddingLeft:"20px",
+  paddingLeft: "20px",
   fontSize: animate ? "36px" : "0",
   opacity: animate ? 1 : 0,
   transform: animate ? "translateY(0)" : "translateY(-20px)",
   transition: "font-size 0.5s ease, opacity 0.5s ease, transform 0.5s ease",
   "&:hover": {
-    fontSize: "38px", 
+    fontSize: "38px",
   },
 }));
 
@@ -64,29 +64,27 @@ const DrawerAppBar = () => {
   useEffect(() => {
     setScrolled(trigger);
 
-   
     const timeout = setTimeout(() => {
       setAnimateTitle(true);
-    }, 200); 
+    }, 200);
 
-    
     return () => clearTimeout(timeout);
   }, [trigger]);
 
   return (
     <Box>
-      <StyledAppBar
-        position="fixed"
-        sx={{ color: "#fff" }}
-        scrolled={scrolled}
-      >
+      <StyledAppBar position="fixed" sx={{ color: "#fff" }} scrolled={scrolled}>
         <Toolbar>
           <AnimatedTitle
             animate={animateTitle}
             variant="h2"
             fontWeight={500}
             // sx={{ fontSize: "48px", fontFamily: "'Amatic SC', cursive", cursor: 'pointer' }}
-            sx={{ fontSize: "34px", fontFamily: "'Phudu', cursive;", cursor: 'pointer' }}
+            sx={{
+              fontSize: "34px",
+              fontFamily: "'Phudu', cursive;",
+              cursor: "pointer",
+            }}
           >
             PROSPER
           </AnimatedTitle>

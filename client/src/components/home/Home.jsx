@@ -172,19 +172,18 @@ import { Box, Button, Typography, styled } from "@mui/material";
 import DrawerAppBar from "../NavigationBar";
 import React, { useState } from "react";
 import Slider from "react-slick";
-import {FaFacebookF , FaLinkedinIn,FaInstagram} from "react-icons/fa"
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { heroBanner } from "../../static/Hero";
 
-
 const SocialMediaIconsContainer = styled("div")({
-  position: "fixed",
+  position: "absolute",
   top: "50%",
   right: "20px",
-  transform: "translateY(-50%)", 
+  transform: "translateY(-50%)",
   display: "flex",
-  flexDirection: "column", 
+  flexDirection: "column",
   gap: "30px",
   zIndex: 1,
 });
@@ -203,7 +202,6 @@ const SocialMediaIcon = styled("a")({
     transform: "scale(1.1)",
   },
 });
-
 
 const BannerSlider = styled(Slider)({
   height: "100vh",
@@ -237,10 +235,10 @@ const BannerSlider = styled(Slider)({
   },
 });
 
-const iconStyle={
-  fontSize:"30px",
-  color:"#fff"
-}
+const iconStyle = {
+  fontSize: "30px",
+  color: "#fff",
+};
 
 const Home = () => {
   const sliderRef = React.createRef();
@@ -348,7 +346,8 @@ const Home = () => {
                     marginTop: "15px",
                     color: "#fff",
                     "&:hover": {
-                      backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),linear-gradient(#d00014, #d00014)",
+                      backgroundImage:
+                        "linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),linear-gradient(#d00014, #d00014)",
                     },
                   }}
                   onMouseEnter={handleHover}
@@ -361,21 +360,21 @@ const Home = () => {
           </Box>
         ))}
       </BannerSlider>
-      
+
       <SocialMediaIconsContainer>
         <SocialMediaIcon
           href="https://www.facebook.com/profile.php?id=100095439190652&mibextid=ZbWKwL"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaFacebookF style={iconStyle}/>
+          <FaFacebookF style={iconStyle} />
         </SocialMediaIcon>
         <SocialMediaIcon
           href="https://www.linkedin.com/company/prosper-educare-canada-inc/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaLinkedinIn style={iconStyle}/>
+          <FaLinkedinIn style={iconStyle} />
         </SocialMediaIcon>
         <SocialMediaIcon
           href="https://instagram.com/prosper.educare?igshid=MzRlODBiNWFlZA=="
@@ -384,7 +383,7 @@ const Home = () => {
         >
           <FaInstagram style={iconStyle} />
         </SocialMediaIcon>
-        </SocialMediaIconsContainer>
+      </SocialMediaIconsContainer>
     </Box>
   );
 };
