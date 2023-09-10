@@ -1,6 +1,6 @@
 import React from "react";
 import OurServices from "../components/services/OurServices";
-import NavigationBar from "../components/NavigationBar";
+// import NavigationBar from "../components/NavigationBar";
 import ContactForm from "../components/contact/ContactForm";
 import AboutSection from "../components/about/AboutSection";
 import Home from "../components/home/Home";
@@ -12,7 +12,6 @@ import Count from "../components/common/counters/Counter";
 const HomePage = () => {
   return (
     <>
-      <NavigationBar />
       <Home />
       <AboutSection />
       <OurServices />
