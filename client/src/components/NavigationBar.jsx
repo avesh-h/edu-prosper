@@ -2,248 +2,103 @@ import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
-  IconButton,
   Typography,
+  Box,
+  useScrollTrigger,
   Button,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  useMediaQuery,
-  Slide,
-  Menu,
-  MenuItem,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import MenuIcon from "@mui/icons-material/Menu";
-import CanadaFlag from "../assets/images/canada waving flag/Waving flag/for a white background/Canada-xs.gif";
-import UKFlag from "../assets/images/united-kingdom waving flag/Waving flag/for a white background/United-Kingdom-xs.gif";
-import USAFlag from "../assets/images/united-states waving flag/Waving flag/for a white background/United-States-xs.gif";
-import { Link } from "react-scroll";
-import CanadaIcon from "../assets/images/canada-icon-website.png";
+import { styled } from "@mui/system";
 
 const StyledAppBar = styled(AppBar)(({ theme, scrolled }) => ({
-  backgroundColor: scrolled ? "#be15158a" : "#fff",
-  width: "100%",
-  transition: "background-color 0.7s ease-in-out",
+  // backgroundImage: scrolled
+  // ? "linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), linear-gradient(#f02849, #f02849)"
+  // : "transparent",
+  backgroundColor: scrolled ? "#b2112b7d" : "transparent",
+  transition: "background-color 0.3s ease",
   boxShadow: "none",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: 240,
-  },
+  border: "none",
+  // "&:hover": {
+  //   backgroundColor:"#f02849"
+  // },
 }));
 
-const ScrollableLinkBtn = styled(Button)({
-  cursor: "pointer",
+const CustomButton = styled(Button)(({ theme }) => ({
+  // fontFamily: "'Amatic SC', cursive",
+  fontFamily: "'Phudu', cursive;",
   color: "#fff",
-  height: "60px",
-  transition: "all .1s ease-in-out",
-  background: "transparent",
+  // fontSize: "24px",
+  fontSize:"18PX",
+  fontWeight:400,
+  textDecoration: "none",
+  transition: "font-size 0.2s ease, text-decoration 0.2s ease",
   "&:hover": {
-    borderBottom: "2px solid #fff",
-    borderRadius: "0",
-    transition: "all .1s ease-in-out",
-  },
-});
-
-const LogoTxt = styled(Typography)(({ theme }) => ({
-  flexGrow: 1,
-  textAlign: { xs: "center", sm: "left" },
-  fontFamily: "Arial, sans-serif",
-  position: "relative",
-  paddingLeft: "50px",
-  "&::before": {
-    content: "''",
-    backgroundImage: `url(${CanadaIcon})`,
-    width: "40px",
-    height: "40px",
-    position: "absolute",
-    top: 0,
-    left: 0,
-    backgroundPosition: "left center",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
+    textDecoration: "underline",
+    // fontSize: "26px",
+    fontSize: "20px",
   },
 }));
 
-const countries = [
-  { name: "Canada", gifUrl: CanadaFlag },
-  { name: "United Kingdom", gifUrl: UKFlag },
-  { name: "USA", gifUrl: USAFlag },
-];
-
-const StyledDrawer = styled(Drawer)(({ theme }) => ({
-  width: 240,
-  flexShrink: 0,
-  "& .MuiDrawer-paper": {
-    width: 240,
-    transition: "width 1s ease-in-out",
+const AnimatedTitle = styled(Typography)(({ theme, animate }) => ({
+  // fontFamily: "'Amatic SC', cursive",
+  fontFamily: "'Phudu', cursive;",
+  // fontSize: animate ? "48px" : "0"
+  paddingLeft:"20px",
+  fontSize: animate ? "36px" : "0",
+  opacity: animate ? 1 : 0,
+  transform: animate ? "translateY(0)" : "translateY(-20px)",
+  transition: "font-size 0.5s ease, opacity 0.5s ease, transform 0.5s ease",
+  "&:hover": {
+    fontSize: "38px", 
   },
 }));
 
-const ResponsiveNavBar = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+const DrawerAppBar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [animateTitle, setAnimateTitle] = useState(false);
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const isTabletScreen = useMediaQuery((theme) =>
-    theme.breakpoints.between("sm", "md")
-  );
-
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 100,
+  });
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
-    };
+    setScrolled(trigger);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+   
+    const timeout = setTimeout(() => {
+      setAnimateTitle(true);
+    }, 200); 
+
+    
+    return () => clearTimeout(timeout);
+  }, [trigger]);
 
   return (
-    <div>
-      <StyledAppBar position="fixed" scrolled={scrolled}>
+    <Box>
+      <StyledAppBar
+        position="fixed"
+        sx={{ color: "#fff" }}
+        scrolled={scrolled}
+      >
         <Toolbar>
-          {(isSmallScreen || isTabletScreen) && (
-            <IconButton
-              edge="start"
-              color="error"
-              aria-label="menu"
-              onClick={toggleDrawer}
-            >
-              <MenuIcon />
-            </IconButton>
-          )}
-          <LogoTxt
-            variant="h6"
-            sx={{
-              color: scrolled ? "#fff" : "#000",
-            }}
+          <AnimatedTitle
+            animate={animateTitle}
+            variant="h2"
+            fontWeight={500}
+            // sx={{ fontSize: "48px", fontFamily: "'Amatic SC', cursive", cursor: 'pointer' }}
+            sx={{ fontSize: "34px", fontFamily: "'Phudu', cursive;", cursor: 'pointer' }}
           >
             PROSPER
-          </LogoTxt>
-          {!isSmallScreen && !isTabletScreen && (
-            <div style={{ display: "flex", alignItems: "center" }}>
-              {countries.map((country) => (
-                <div
-                  key={country.name}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    margin: "5px",
-                  }}
-                >
-                  <img
-                    src={country.gifUrl}
-                    alt={country.name}
-                    style={{ width: "30px", height: "20px", margin: "2px" }}
-                  />
-                  <Button style={{ color: scrolled ? "white" : "black" }}>
-                    {country.name}
-                  </Button>
-                </div>
-              ))}
-            </div>
-          )}
+          </AnimatedTitle>
+          <Box flexGrow={1} />
+          <CustomButton>Home</CustomButton>
+          <CustomButton>About</CustomButton>
+          <CustomButton>Services</CustomButton>
+          <CustomButton>Contact</CustomButton>
         </Toolbar>
       </StyledAppBar>
-      <div style={{ marginTop: "64px" }}>
-        {!isSmallScreen && !isTabletScreen && (
-          <Toolbar
-            variant="dense"
-            sx={{
-              backgroundColor: "#d00014",
-              justifyContent: "start",
-              gap:"50px"
-            }}
-          >
-            <Link
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-50}
-              duration={500}
-            >
-              <ScrollableLinkBtn>About</ScrollableLinkBtn>
-            </Link>
-            <Link
-              to="services"
-              spy={true}
-              smooth={true}
-              offset={-50}
-              duration={500}
-            >
-              <ScrollableLinkBtn>Services</ScrollableLinkBtn>
-            </Link>
-            <Link
-              to="testimonials"
-              spy={true}
-              smooth={true}
-              offset={-50}
-              duration={500}
-            >
-              <ScrollableLinkBtn>Testimonials</ScrollableLinkBtn>
-            </Link>
-            <Link to="hero" spy={true} smooth={true} offset={50} duration={500}>
-              <ScrollableLinkBtn onClick={handleClick}>
-                Countries
-              </ScrollableLinkBtn>
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  "aria-labelledby": "basic-button",
-                }}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-              </Menu>
-            </Link>
-          </Toolbar>
-        )}
-      </div>
-      {isSmallScreen && (
-        <StyledDrawer
-          variant="temporary"
-          anchor="left"
-          open={isDrawerOpen}
-          onClose={toggleDrawer}
-        >
-          <List>
-            <ListItem button>
-              <ListItemText primary="Home" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="About" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Services" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Contact" />
-            </ListItem>
-          </List>
-        </StyledDrawer>
-      )}
-    </div>
+    </Box>
   );
 };
 
-export default ResponsiveNavBar;
+export default DrawerAppBar;

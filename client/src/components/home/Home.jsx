@@ -1,99 +1,271 @@
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+// import React, { useState, useEffect } from 'react';
+// import DrawerAppBar from '../NavigationBar';
+// import { Container, Typography, Button } from '@mui/material';
+// import { styled } from '@mui/system';
+// import backgroundVideo from "../../assets/images/Untitled.mp4";
+// import backgroundImage from "../../assets/images/Untitled.png";
+
+// const HeroContainer = styled(Container)(({ theme }) => ({
+//   textAlign: 'center',
+//   minHeight: '100vh',
+//   display: 'flex',
+//   flexDirection: 'column',
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   position: 'relative',
+//   overflow: 'hidden',
+// }));
+
+// const TextOverlay = styled('div')({
+//   position: 'absolute',
+//   top: 0,
+//   left: 0,
+//   width: '100%',
+//   height: '100%',
+//   display: 'flex',
+//   flexDirection: 'column',
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   color: 'white',
+//   animation: 'fadeIn 1s ease',
+// });
+
+// const GradientOverlay = styled('div')({
+//   position: 'absolute',
+//   top: 0,
+//   left: 0,
+//   width: '100%',
+//   height: '100%',
+//   background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))',
+// });
+
+// const fadeInAnimation = `
+//   @keyframes fadeIn {
+//     from {
+//       opacity: 0;
+//     }
+//     to {
+//       opacity: 1;
+//     }
+//   }
+// `;
+
+// const textTransition = `
+//   @keyframes textAnimation {
+//     from {
+//       font-size: 0;
+//       opacity: 0;
+//       transform: translateY(-20px);
+//     }
+//     to {
+//       font-size: 24px;
+//       opacity: 1;
+//       transform: translateY(0);
+//     }
+//   }
+// `;
+
+// const HeroSection = () => {
+//   const [videoEnded, setVideoEnded] = useState(false);
+
+//   useEffect(() => {
+//     const videoElement = document.getElementById('background-video');
+
+//     if (videoElement) {
+//       const handleVideoEnded = () => {
+//         setVideoEnded(true);
+//       };
+
+//       videoElement.addEventListener('ended', handleVideoEnded);
+
+//       return () => {
+//         videoElement.removeEventListener('ended', handleVideoEnded);
+//       };
+//     }
+//   }, []);
+
+//   return (
+//     <div>
+//       <HeroContainer maxWidth="100%">
+//         <DrawerAppBar />
+//         {videoEnded ? (
+//           <>
+//             <img
+//               src={backgroundImage}
+//               alt="Background"
+//               style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }}
+//             />
+//             <GradientOverlay />
+//           </>
+//         ) : (
+//           <>
+//             <video
+//               autoPlay
+//               muted
+//               playsInline
+//               style={{
+//                 position: 'absolute',
+//                 width: '100%',
+//                 height: '100%',
+//                 objectFit: 'cover', // Add this line to set object-fit to 'cover'
+//               }}
+//               id="background-video"
+//             >
+//               <source src={backgroundVideo} type="video/mp4" />
+//             </video>
+//             <GradientOverlay />
+//           </>
+//         )}
+//         <TextOverlay>
+//           <style>{fadeInAnimation}</style>
+//           <style>{textTransition}</style>
+//           <Typography
+//             sx={{
+//               fontFamily:"'Courgette', cursive",
+//               ...fadeInAnimation,
+//               animationFillMode: 'forwards',
+//               animationDelay: '0.5s',
+//             }}
+//             variant="h3"
+//             component="div"
+//             gutterBottom
+//           >
+//             Welcome to Your Website
+//           </Typography>
+//           <Typography
+//             sx={{
+//               fontFamily: "'Stylish', sans-serif;",
+//               fontSize: '24px',
+//               ...fadeInAnimation,
+//               animationFillMode: 'forwards',
+//             }}
+//             variant="subtitle1"
+//             paragraph
+//           >
+//             Your compelling tagline or subheadline goes here.
+//           </Typography>
+//           <Button
+//             sx={{
+//               fontFamily: "'Stylish', sans-serif;",
+//               background: 'rgba(0, 0, 0, 0.5)',
+//               color: 'white',
+//               ...fadeInAnimation,
+//               animationFillMode: 'forwards',
+//               "&:hover": {
+//                 background: 'rgba(0, 0, 0, 0.7)',
+//               },
+//             }}
+//             variant="contained"
+//             size="large"
+//           >
+//             Get Started
+//           </Button>
+//         </TextOverlay>
+//       </HeroContainer>
+//     </div>
+//   );
+// };
+
+// export default HeroSection;
+
 import { Box, Button, Typography, styled } from "@mui/material";
+import DrawerAppBar from "../NavigationBar";
 import React, { useState } from "react";
 import Slider from "react-slick";
+import {FaFacebookF , FaLinkedinIn,FaInstagram} from "react-icons/fa"
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { heroBanner } from "../../static/Hero";
 
-const BannerSlider = styled(Slider)({
-  height: 600,
+
+const SocialMediaIconsContainer = styled("div")({
+  position: "fixed",
+  top: "50%",
+  right: "20px",
+  transform: "translateY(-50%)", 
+  display: "flex",
+  flexDirection: "column", 
+  gap: "30px",
+  zIndex: 1,
 });
 
-const arrowStyle = {
-  display: "block",
-  background: "white",
+const SocialMediaIcon = styled("a")({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "40px",
   height: "40px",
-  width: "80px",
-  zIndex: 1,
-  cursor: "pointer",
-  position: "absolute",
-  border: "2px solid #fff",
-  background: "transparent",
-  "&::before": { display: "none" },
-  "&:hover": { background: "#214a9863" },
-};
+  borderRadius: "50%",
+  backgroundColor: "trasnperant",
+  boxShadow: "transparenat",
+  transition: "transform 0.2s ease-in-out",
+  "&:hover": {
+    transform: "scale(1.1)",
+  },
+});
 
-const arrowIconSx = {
-  color: "red",
-  fontSize: "30px",
-  transform: "translate(-50%, -50%)",
-};
 
-function SampleNextArrow({ className, onClick }) {
-  return (
-    <Box
-      className={className}
-      sx={{
-        ...arrowStyle,
-        right: "3%",
-      }}
-      onClick={onClick}
-    >
-      <ArrowForwardIosIcon
-        sx={{
-          ...arrowIconSx,
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-        }}
-      />
-    </Box>
-  );
-}
+const BannerSlider = styled(Slider)({
+  height: "100vh",
+  ".slick-dots": {
+    position: "absolute",
+    bottom: "40px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    listStyle: "none",
+    padding: 0,
+    margin: 0,
+  },
+  ".slick-dots li": {
+    listStyle: "none",
+    margin: "0 10px",
+  },
+  ".slick-dots li button": {
+    width: "10px",
+    height: "10px",
+    backgroundColor: "white",
+    listStyle: "none",
+    borderRadius: "50%",
+    border: "2px solid #fff",
+    opacity: 0.7,
+    zIndex: 1,
+    transition: "opacity 0.3s",
+  },
+  ".slick-dots li.slick-active button": {
+    opacity: 1,
+  },
+});
 
-function SamplePrevArrow({ className, onClick }) {
-  return (
-    <Box
-      className={className}
-      sx={{ ...arrowStyle, left: "3%" }}
-      onClick={onClick}
-    >
-      <ArrowBackIosIcon
-        sx={{
-          ...arrowIconSx,
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-        }}
-      />
-    </Box>
-  );
+const iconStyle={
+  fontSize:"30px",
+  color:"#fff"
 }
 
 const Home = () => {
-  const [showArrows, setShowArrows] = useState(false);
   const sliderRef = React.createRef();
+  const [isHovered, setIsHovered] = useState(false);
 
   const settings = {
     ref: sliderRef,
     dots: true,
     infinite: true,
-    speed: 900,
+    speed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     arrows: false,
+    fade: true,
+    cssEase: "ease-in-out",
   };
 
-  const goToNextSlide = () => {
-    sliderRef.current.slickNext();
+  const handleHover = () => {
+    setIsHovered(true);
   };
 
-  const goToPrevSlide = () => {
-    sliderRef.current.slickPrev();
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
 
   return (
@@ -104,44 +276,31 @@ const Home = () => {
         backgroundColor: "lightgray",
         position: "relative",
       }}
-      onMouseEnter={() => setShowArrows(true)}
-      onMouseLeave={() => setShowArrows(false)}
     >
+      <DrawerAppBar />
       <BannerSlider {...settings}>
         {heroBanner.map((banner, ind) => (
           <Box
             key={ind}
             sx={{
-              backgroundImage: `url(${banner.img})`,
-              height: "600px",
+              backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),url(${banner.img})`,
+              height: "100vh",
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               alignItems: "center",
               backgroundSize: "cover",
               position: "relative",
-              "&::before": {
-                content: "''",
-                position: "absolute",
-                height: "100%",
-                backgroundColor: "#ffffff36",
-                height: "600px",
-                width: "100%",
-                zIndex: 1,
-              },
-              "&:hover": {
-                backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 150, 150, 0.06)) , url(${banner.img})`,
-              },
             }}
           >
-            <Box
-              sx={{
-                flex: 1,
-                paddingLeft: "10%",
-                paddingTop: "13%",
-                transition: "transform 0.3s",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                },
+            <div
+              style={{
+                position: "absolute",
+                // textAlign: "center",
+                top: "50%",
+                left: "30%",
+                transform: "translate(-50%, -50%)",
+                width: "35%",
+                transition: "all 0.5s",
               }}
             >
               <Typography
@@ -155,7 +314,7 @@ const Home = () => {
                 sx={{
                   textDecoration: "underline",
                 }}
-                letterSpacing={1}
+                letterSpacing={2}
               >
                 {banner.title}
               </Typography>
@@ -163,8 +322,10 @@ const Home = () => {
                 variant="body2"
                 color={"#fff"}
                 fontSize={"42px"}
-                fontWeight={400}
-                width={"35%"}
+                letterSpacing={3}
+                fontFamily={"'Phudu', cursive;"}
+                fontWeight={500}
+                width={"100%"}
                 sx={{
                   marginTop: "10px",
                 }}
@@ -181,44 +342,49 @@ const Home = () => {
                   fontSize={"28px"}
                   sx={{
                     padding: "10px 20px",
-                    backgroundColor:"#d00014",
+                    backgroundImage: isHovered
+                      ? "linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), linear-gradient(#d00014, #d00014)"
+                      : "linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), linear-gradient(#f02849, #f02849)",
                     marginTop: "15px",
+                    color: "#fff",
+                    "&:hover": {
+                      backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),linear-gradient(#d00014, #d00014)",
+                    },
                   }}
+                  onMouseEnter={handleHover}
+                  onMouseLeave={handleMouseLeave}
                 >
                   Check Eligibility
                 </Button>
               </Box>
-            </Box>
-            <Box sx={{ flex: 1 }} />
+            </div>
           </Box>
         ))}
       </BannerSlider>
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "2%",
-          transform: `translateY(-50%) ${showArrows ? "scale(1)" : "scale(0.8)"}`,
-          opacity: showArrows ? 1 : 0,
-          transition: "opacity 0.3s, transform 0.3s",
-        }}
-        onClick={goToPrevSlide}
-      >
-        <SamplePrevArrow />
-      </Box>
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          right: "1.5%",
-          transform: `translateY(-50%) ${showArrows ? "scale(1)" : "scale(0.8)"}`,
-          opacity: showArrows ? 1 : 0,
-          transition: "opacity 0.3s, transform 0.3s",
-        }}
-        onClick={goToNextSlide}
-      >
-        <SampleNextArrow />
-      </Box>
+      
+      <SocialMediaIconsContainer>
+        <SocialMediaIcon
+          href="https://www.facebook.com/profile.php?id=100095439190652&mibextid=ZbWKwL"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaFacebookF style={iconStyle}/>
+        </SocialMediaIcon>
+        <SocialMediaIcon
+          href="https://www.linkedin.com/company/prosper-educare-canada-inc/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaLinkedinIn style={iconStyle}/>
+        </SocialMediaIcon>
+        <SocialMediaIcon
+          href="https://instagram.com/prosper.educare?igshid=MzRlODBiNWFlZA=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram style={iconStyle} />
+        </SocialMediaIcon>
+        </SocialMediaIconsContainer>
     </Box>
   );
 };
